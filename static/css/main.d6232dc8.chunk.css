@@ -1,0 +1,170 @@
+.VisCanvas_visArea__3vo9d {
+  flex: 1 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* prevent overflow when enabling `keepAspectRatio` */
+}
+
+.VisCanvas_vis__6RqaZ {
+  flex: none;
+}
+
+/* R3F's root element */
+.VisCanvas_canvasWrapper__iaH4C {
+  overflow: visible !important; /* show child axis grid, which is bigger than canvas */
+  z-index: 0; /* stacking context for child `<HTML />` elements */
+}
+
+/* R3F's <HTML /> element */
+.VisCanvas_canvasWrapper__iaH4C > div {
+  transform: none !important;
+  /* - Prevent panning/zooming from axis when zoomed in.
+   * - Prevent text selection of tick labels when panning with touchpad. */
+  pointer-events: none;
+}
+
+.AxisSystem_axisSystem__12e1S {
+  position: relative;
+  top: 0;
+  display: grid;
+  grid-template-areas:
+    '. top-axis .'
+    'left-axis axis-grid right-axis'
+    '. bottom-axis .';
+}
+
+.AxisSystem_leftAxisCell__Osp8I {
+  grid-area: left-axis;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.AxisSystem_bottomAxisCell__2gsVG {
+  grid-area: bottom-axis;
+  display: flex;
+}
+
+.AxisSystem_axisGridCell__21rdC {
+  grid-area: axis-grid;
+  display: flex;
+}
+
+.AxisSystem_axis__4Bl9- {
+  display: block;
+  overflow: visible;
+  flex: 1 1;
+}
+
+.AxisSystem_axis__4Bl9-[data-orientation='left'] {
+  text-anchor: end;
+  min-height: 0;
+}
+
+.AxisSystem_axis__4Bl9-[data-orientation='bottom'] {
+  min-width: 0;
+  text-anchor: middle;
+}
+
+.AxisSystem_tick__1jl4s > text {
+  fill: darkslategrey;
+  font-family: inherit;
+  font-size: inherit;
+  text-anchor: inherit;
+  dominant-baseline: inherit;
+}
+
+.ColorBar_colorBar__3AyII {
+  display: flex;
+  padding: 1em;
+}
+
+.ColorBar_colorBar__3AyII:not([data-horizontal]) {
+  width: 6em;
+  min-height: 0;
+}
+
+.ColorBar_colorBar__3AyII[data-horizontal] {
+  flex-direction: column;
+  height: 6em;
+  min-width: 0;
+}
+
+.ColorBar_colorBarAxis__4-BhM {
+  display: block;
+  overflow: visible;
+  align-self: center;
+}
+
+.ColorBar_gradient__3wW7U {
+  flex: 1 0 auto;
+  border: 1px solid black;
+}
+
+.HeatmapVis_root__1UbhL {
+  flex: 1 1;
+  display: flex;
+  min-width: 0;
+}
+
+.HeatmapVis_textureLoader__3zep6 {
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.5) 60%,
+    transparent
+  );
+  background-position-x: -50%;
+  background-size: 35% 100%; /* allows animating position in percent */
+  background-repeat: no-repeat;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+
+.HeatmapVis_textureLoader__3zep6[data-visible] {
+  opacity: 1;
+  -webkit-animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
+          animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
+}
+
+@-webkit-keyframes HeatmapVis_shiftBg__ivSDB {
+  to {
+    background-position-x: 150%;
+  }
+}
+
+@keyframes HeatmapVis_shiftBg__ivSDB {
+  to {
+    background-position-x: 150%;
+  }
+}
+
+.HeatmapVis_domainError__1QCLG {
+  padding: 1em;
+  color: var(--danger);
+}
+
+.TooltipMesh_tooltip__2WGMb {
+  color: inherit !important;
+  background-color: rgba(245, 251, 239, 0.7) !important;
+}
+
+.TooltipMesh_tooltipValue__1dfEv {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  font-size: 1.125em;
+}
+
+.LineVis_root__3Kfed {
+  flex: 1 1;
+  display: flex;
+  min-width: 0;
+  margin: 1rem;
+}
+
+
+/*# sourceMappingURL=main.d6232dc8.chunk.css.map*/
