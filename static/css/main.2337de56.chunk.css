@@ -126,25 +126,13 @@
 
 .HeatmapVis_textureLoader__3zep6[data-visible] {
   opacity: 1;
-  -webkit-animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
-          animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
-}
-
-@-webkit-keyframes HeatmapVis_shiftBg__ivSDB {
-  to {
-    background-position-x: 150%;
-  }
+  animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
 }
 
 @keyframes HeatmapVis_shiftBg__ivSDB {
   to {
     background-position-x: 150%;
   }
-}
-
-.HeatmapVis_domainError__1QCLG {
-  padding: 1em;
-  color: var(--danger);
 }
 
 .TooltipMesh_tooltip__2WGMb {
@@ -167,4 +155,4 @@
 }
 
 
-/*# sourceMappingURL=main.eafa7cde.chunk.css.map*/
+/*# sourceMappingURL=main.2337de56.chunk.css.map*/
