@@ -107,6 +107,7 @@
   flex: 1 1;
   display: flex;
   min-width: 0;
+  min-height: 0;
 }
 
 .HeatmapVis_textureLoader__3zep6 {
@@ -155,4 +156,4 @@
 }
 
 
-/*# sourceMappingURL=main.2337de56.chunk.css.map*/
+/*# sourceMappingURL=main.583d4b66.chunk.css.map*/
