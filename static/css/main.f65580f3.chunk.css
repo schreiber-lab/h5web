@@ -14,25 +14,18 @@
 /* R3F's root element */
 .VisCanvas_canvasWrapper__iaH4C {
   overflow: visible !important; /* show child axis grid, which is bigger than canvas */
-  z-index: 0; /* stacking context for child `<Html />` elements */
-}
-
-/* R3F's <Html /> element */
-.VisCanvas_canvasWrapper__iaH4C > div {
-  transform: none !important;
-  /* - Prevent panning/zooming from axis when zoomed in.
-   * - Prevent text selection of tick labels when panning with touchpad. */
-  pointer-events: none;
 }
 
 .AxisSystem_axisSystem__12e1S {
-  position: relative;
-  top: 0;
   display: grid;
   grid-template-areas:
     '. top-axis .'
     'left-axis axis-grid right-axis'
     '. bottom-axis .';
+
+  /* - Prevent panning/zooming from axis when zoomed in.
+   * - Prevent text selection of tick labels when panning with touchpad. */
+  pointer-events: none;
 }
 
 .AxisSystem_leftAxisCell__Osp8I {
@@ -161,4 +154,4 @@
 }
 
 
-/*# sourceMappingURL=main.9d05c0c3.chunk.css.map*/
+/*# sourceMappingURL=main.f65580f3.chunk.css.map*/
