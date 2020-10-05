@@ -145,6 +145,7 @@
   flex: 1 1;
   display: flex;
   min-width: 0;
+  min-height: 0;
   margin: 1rem;
 }
 
@@ -154,4 +155,4 @@
 }
 
 
-/*# sourceMappingURL=main.f65580f3.chunk.css.map*/
+/*# sourceMappingURL=main.76a5894b.chunk.css.map*/
