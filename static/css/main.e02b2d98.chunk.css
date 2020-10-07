@@ -20,7 +20,7 @@
   display: grid;
   grid-template-areas:
     '. top-axis .'
-    'left-axis axis-grid right-axis'
+    '. axis-grid right-axis'
     '. bottom-axis .';
 
   /* - Prevent panning/zooming from axis when zoomed in.
@@ -28,37 +28,24 @@
   pointer-events: none;
 }
 
-.AxisSystem_leftAxisCell__Osp8I {
-  grid-area: left-axis;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-.AxisSystem_bottomAxisCell__2gsVG {
-  grid-area: bottom-axis;
-  display: flex;
-}
-
-.AxisSystem_axisGridCell__21rdC {
-  grid-area: axis-grid;
-  display: flex;
-}
-
+.AxisSystem_grid__QOVr-,
 .AxisSystem_axis__4Bl9- {
   display: block;
   overflow: visible;
-  flex: 1 1;
 }
 
-.AxisSystem_axis__4Bl9-[data-orientation='left'] {
-  text-anchor: end;
-  min-height: 0;
-}
-
-.AxisSystem_axis__4Bl9-[data-orientation='bottom'] {
-  min-width: 0;
+.AxisSystem_axis__4Bl9-[data-type='abscissa'] {
+  grid-area: bottom-axis;
   text-anchor: middle;
+}
+
+.AxisSystem_axis__4Bl9-[data-type='ordinate'] {
+  grid-area: axis-grid; /* `AxisLeft` aligns ticks to the outer left of its own bounding box  */
+  text-anchor: end;
+}
+
+.AxisSystem_grid__QOVr- {
+  grid-area: axis-grid;
 }
 
 .AxisSystem_tick__1jl4s > text {
@@ -155,4 +142,4 @@
 }
 
 
-/*# sourceMappingURL=main.76a5894b.chunk.css.map*/
+/*# sourceMappingURL=main.e02b2d98.chunk.css.map*/
