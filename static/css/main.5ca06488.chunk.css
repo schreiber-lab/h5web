@@ -56,6 +56,13 @@
   dominant-baseline: inherit;
 }
 
+.AxisSystem_label__VgMi5 {
+  fill: darkslategrey;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+}
+
 .ColorBar_colorBar__3AyII {
   display: flex;
   padding: 1em;
@@ -142,4 +149,4 @@
 }
 
 
-/*# sourceMappingURL=main.406b95c7.chunk.css.map*/
+/*# sourceMappingURL=main.5ca06488.chunk.css.map*/
