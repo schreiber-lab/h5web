@@ -63,6 +63,15 @@
   font-weight: 600;
 }
 
+.AxisSystem_title__19cE8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: top-axis;
+  color: darkslategrey;
+  font-size: 1.125em;
+}
+
 .ColorBar_colorBar__3AyII {
   display: flex;
   padding: 1em;
@@ -149,4 +158,4 @@
 }
 
 
-/*# sourceMappingURL=main.5ca06488.chunk.css.map*/
+/*# sourceMappingURL=main.a4e054ce.chunk.css.map*/
