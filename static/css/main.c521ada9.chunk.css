@@ -28,6 +28,11 @@
   pointer-events: none;
 }
 
+.AxisSystem_axisSystem__12e1S > svg {
+  width: 0;
+  height: 0;
+}
+
 .AxisSystem_grid__QOVr-,
 .AxisSystem_axis__4Bl9- {
   display: block;
@@ -158,4 +163,4 @@
 }
 
 
-/*# sourceMappingURL=main.a4e054ce.chunk.css.map*/
+/*# sourceMappingURL=main.c521ada9.chunk.css.map*/
