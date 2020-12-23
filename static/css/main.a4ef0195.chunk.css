@@ -1,73 +1,14 @@
-.ColorBar_colorBar__3AyII {
-  display: flex;
-  padding: 1em;
+.ScalarVis_scalar__3Rkpv {
+  padding: 1rem 1.5rem;
+  font-family: var(--monospace);
 }
 
-.ColorBar_colorBar__3AyII:not([data-horizontal]) {
-  width: 6em;
-  min-height: 0;
-}
-
-.ColorBar_colorBar__3AyII[data-horizontal] {
-  flex-direction: column;
-  height: 6em;
-  min-width: 0;
-}
-
-.ColorBar_colorBarAxis__4-BhM {
-  display: block;
-  overflow: visible;
-  align-self: center;
-}
-
-.ColorBar_gradient__3wW7U {
-  flex: 1 0 auto;
-  border: 1px solid black;
-}
-
-.HeatmapVis_root__1UbhL {
+.LineVis_root__3Kfed {
   flex: 1 1;
   display: flex;
   min-width: 0;
   min-height: 0;
-}
-
-.HeatmapVis_textureLoader__3zep6 {
-  background-color: rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.5) 60%,
-    transparent
-  );
-  background-position-x: -50%;
-  background-size: 35% 100%; /* allows animating position in percent */
-  background-repeat: no-repeat;
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
-}
-
-.HeatmapVis_textureLoader__3zep6[data-visible] {
-  opacity: 1;
-  animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
-}
-
-@keyframes HeatmapVis_shiftBg__ivSDB {
-  to {
-    background-position-x: 150%;
-  }
-}
-
-.TooltipMesh_tooltip__2WGMb {
-  color: inherit !important;
-  background-color: rgba(245, 251, 239, 0.7) !important;
-}
-
-.TooltipMesh_tooltipValue__1dfEv {
-  display: block;
-  font-weight: 600;
-  margin-top: 0.25rem;
-  font-size: 1.125em;
+  margin: 1rem;
 }
 
 .VisCanvas_visArea__3vo9d {
@@ -150,18 +91,77 @@
   font-size: 1.125em;
 }
 
-.ScalarVis_scalar__3Rkpv {
-  padding: 1rem 1.5rem;
-  font-family: var(--monospace);
+.TooltipMesh_tooltip__2WGMb {
+  color: inherit !important;
+  background-color: rgba(245, 251, 239, 0.7) !important;
 }
 
-.LineVis_root__3Kfed {
+.TooltipMesh_tooltipValue__1dfEv {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  font-size: 1.125em;
+}
+
+.HeatmapVis_root__1UbhL {
   flex: 1 1;
   display: flex;
   min-width: 0;
   min-height: 0;
-  margin: 1rem;
+}
+
+.HeatmapVis_textureLoader__3zep6 {
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.5) 60%,
+    transparent
+  );
+  background-position-x: -50%;
+  background-size: 35% 100%; /* allows animating position in percent */
+  background-repeat: no-repeat;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+
+.HeatmapVis_textureLoader__3zep6[data-visible] {
+  opacity: 1;
+  animation: HeatmapVis_shiftBg__ivSDB 1s ease-in-out infinite;
+}
+
+@keyframes HeatmapVis_shiftBg__ivSDB {
+  to {
+    background-position-x: 150%;
+  }
+}
+
+.ColorBar_colorBar__3AyII {
+  display: flex;
+  padding: 1em;
+}
+
+.ColorBar_colorBar__3AyII:not([data-horizontal]) {
+  width: 6em;
+  min-height: 0;
+}
+
+.ColorBar_colorBar__3AyII[data-horizontal] {
+  flex-direction: column;
+  height: 6em;
+  min-width: 0;
+}
+
+.ColorBar_colorBarAxis__4-BhM {
+  display: block;
+  overflow: visible;
+  align-self: center;
+}
+
+.ColorBar_gradient__3wW7U {
+  flex: 1 0 auto;
+  border: 1px solid black;
 }
 
 
-/*# sourceMappingURL=main.90793a97.chunk.css.map*/
+/*# sourceMappingURL=main.a4ef0195.chunk.css.map*/
