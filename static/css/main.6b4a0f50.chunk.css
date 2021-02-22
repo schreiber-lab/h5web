@@ -1,0 +1,329 @@
+:root {
+  --black: #020402;
+  --dark-slate-gray: #2f4f4f;
+  --dark-gray: #696969;
+  --gray: #808080;
+  --white: #ffffff;
+  --primary: #c0da74;
+  --primary-light: #d4e09b;
+  --primary-dark: #9aae5d;
+  --primary-bg: #f5fbef;
+  --primary-light-bg: #fafdf7;
+  --primary-light-bg-70: #fafdf7b3;
+  --primary-dark-bg: #dde2d7;
+  --secondary: #8cdfc7;
+  --secondary-light: #b7fcf3;
+  --secondary-lighter: #dbfef9;
+  --secondary-dark: #1b998b;
+  --secondary-dark-15: #1b998b26;
+  --secondary-darker: #0e5846;
+  --secondary-bg: #d9f4ec;
+  --secondary-light-bg: #ecfaf6;
+  --danger: #99231b;
+  --monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+  --sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --btn-shadow-idle: -1px -1px 2px 0 inset;
+  --btn-shadow-pressed: 1px 1px 2px 0 inset;
+  --btn-shadow-color: var(--gray);
+  --btn-shadow-dark-color: var(--dark-gray);
+  --btn-shadow-darker-color: var(--dark-slate-gray);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans-serif);
+  line-height: 1.2;
+  color: var(--black);
+}
+
+@media (min-width: 50em) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
+#root {
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p,
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+pre {
+  font-family: var(--monospace);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[tabindex='-1']:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.btn-clean {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+}
+
+
+
+.ScalarVis_scalar__3FHGh {
+  padding: 1rem 1.5rem;
+  font-family: var(--monospace);
+}
+
+.LineVis_root__39r6c {
+  flex: 1 1;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  margin: 1rem;
+}
+
+.LineVis_root__39r6c canvas {
+  /* This sets the default color of the line */
+  color: var(--secondary-dark);
+}
+
+.VisCanvas_visArea__82c5m {
+  flex: 1 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* prevent overflow when enabling `keepAspectRatio` */
+}
+
+.VisCanvas_vis__yc-fW {
+  flex: none;
+}
+
+/* R3F's root element */
+.VisCanvas_canvasWrapper__2spCw {
+  overflow: visible !important; /* show child axis grid, which is bigger than canvas */
+}
+
+.AxisSystem_axisSystem__19hPO {
+  display: grid;
+  grid-template-areas:
+    '. top-axis .'
+    '. axis-grid right-axis'
+    '. bottom-axis .';
+
+  /* - Prevent panning/zooming from axis when zoomed in.
+   * - Prevent text selection of tick labels when panning with touchpad. */
+  pointer-events: none;
+  --primary-axis-color: var(--dark-slate-gray);
+  --secondary-axis-color: var(--gray);
+}
+
+.AxisSystem_axisSystem__19hPO > svg {
+  display: block;
+  overflow: visible;
+
+  /* Avoid potential overflow caused by default intrinsic size of `svg` elements. */
+  /* Chrome/Edge require values greater than 0. */
+  width: 1px;
+  height: 1px;
+}
+
+.AxisSystem_axis__3WzmG[data-type='abscissa'] {
+  grid-area: bottom-axis;
+  text-anchor: middle;
+}
+
+.AxisSystem_axis__3WzmG[data-type='ordinate'] {
+  grid-area: axis-grid; /* `AxisLeft` aligns ticks to the outer left of its own bounding box  */
+  text-anchor: end;
+}
+
+.AxisSystem_grid__ohRGd {
+  grid-area: axis-grid;
+}
+
+.AxisSystem_grid__ohRGd line {
+  stroke: var(--secondary-axis-color);
+  stroke-opacity: 0.33;
+}
+
+.AxisSystem_tick__2cDlf > line {
+  stroke: var(--secondary-axis-color);
+}
+
+.AxisSystem_tick__2cDlf > text {
+  fill: var(--primary-axis-color);
+  font-family: inherit;
+  font-size: inherit;
+  text-anchor: inherit;
+  dominant-baseline: inherit;
+}
+
+.AxisSystem_label__3v_gK {
+  fill: var(--primary-axis-color);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.AxisSystem_title__fMEdr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: top-axis;
+  margin-bottom: 0;
+  color: var(--primary-axis-color);
+  font-size: 1.125em;
+}
+
+.TooltipMesh_tooltip__Elx2C {
+  color: inherit !important;
+  background-color: var(--primary-light-bg-70) !important;
+}
+
+.TooltipMesh_guides__lbQGd {
+  stroke: var(--secondary-axis-color);
+  stroke-width: 1.5;
+  stroke-opacity: 0.5;
+}
+
+.TooltipMesh_tooltipValue__V0pkp {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  font-size: 1.125em;
+}
+
+.HeatmapVis_root__BKPci {
+  flex: 1 1;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.ColorBar_colorBar__39u-6 {
+  display: grid;
+  padding: 1rem;
+}
+
+.ColorBar_colorBar__39u-6:not([data-horizontal]) {
+  grid-template-rows: -webkit-min-content 1fr -webkit-min-content;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-columns: 2.25rem 2.5rem;
+  grid-template-areas:
+    'max .'
+    'gradient axis'
+    'min .';
+}
+
+.ColorBar_colorBar__39u-6[data-horizontal] {
+  height: 7rem;
+  grid-template-rows: 2.25rem 2.5rem;
+  grid-template-columns: -webkit-min-content 1fr -webkit-min-content;
+  grid-template-columns: min-content 1fr min-content;
+  grid-template-areas:
+    'min gradient max'
+    '. axis .';
+}
+
+.ColorBar_gradient__3uRdN {
+  grid-area: gradient;
+  border: 1px solid var(--black);
+  background-repeat: no-repeat; /* fix subtle bug where gradient is repeated over 1px */
+}
+
+.ColorBar_axis__22dR5 {
+  grid-area: axis;
+  display: block;
+  overflow: visible;
+}
+
+.ColorBar_tick__Yej21 line {
+  stroke: var(--gray);
+}
+
+.ColorBar_tick__Yej21 text {
+  fill: var(--dark-slate-gray);
+  font-family: inherit;
+  font-size: inherit;
+  text-anchor: inherit;
+  dominant-baseline: inherit;
+}
+
+.ColorBar_bound__2YDG5 {
+  display: inline-flex;
+  align-self: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 0.875em;
+}
+
+.ColorBar_minBound__2U6wW {
+  grid-area: min;
+  margin: 0.5rem 0 -0.25rem;
+}
+
+.ColorBar_maxBound__svuSh {
+  grid-area: max;
+  margin: -0.25rem 0 0.5rem;
+}
+
+.ColorBar_colorBar__39u-6[data-horizontal] .ColorBar_bound__2YDG5 {
+  min-width: 3.75em; /* keep bounds equal on both sides in most cases */
+}
+
+.ColorBar_colorBar__39u-6[data-horizontal] .ColorBar_minBound__2U6wW {
+  justify-content: flex-end;
+  margin: 0 0.5rem 0 -0.25rem;
+}
+
+.ColorBar_colorBar__39u-6[data-horizontal] .ColorBar_maxBound__svuSh {
+  justify-content: flex-start;
+  margin: 0 -0.25rem 0 0.5rem;
+}
+
+
+/*# sourceMappingURL=main.6b4a0f50.chunk.css.map*/
