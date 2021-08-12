@@ -41,6 +41,8 @@
   --h5w-selector-label--color: var(--secondary-dark);
   --h5w-selector-option-hover--bgColor: var(--secondary-light-bg);
   --h5w-selector-option-selected--bgColor: var(--secondary-light);
+  --h5w-domainSlider-histogram--color: var(--secondary-dark);
+  --h5w-domainSlider-histogram-indicator--color: var(--secondary-darker);
 }
 
 *,
@@ -171,12 +173,12 @@ abbr[title] {
 }
 
 .MatrixVis_wrapper__30-P6 {
+  position: relative;
   flex: 1 1;
-  min-width: 0;
-  min-height: 0;
 }
 
 .MatrixVis_grid__2z-N0 {
+  position: absolute !important; /* prevent feedback loop with `useMeasure` on wrapper */
   color: var(--h5w-matrix--color, inherit);
   font-family: var(--h5w-matrix--fontFamily, monospace);
   font-size: var(--h5w-matrix--fontSize, inherit);
@@ -271,16 +273,13 @@ abbr[title] {
 }
 
 .VisCanvas_visArea__82c5m {
+  position: relative;
   flex: 1 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* prevent overflow when keeping aspect ratio` */
+  overflow: hidden; /* prevent overflow when resizing */
 }
 
 .VisCanvas_vis__yc-fW {
-  flex: none;
+  position: absolute; /* prevent feedback loop with `useMeasure` on wrapper */
 }
 
 /* R3F's root element */
@@ -398,6 +397,8 @@ abbr[title] {
 }
 
 .ColorBar_colorBar__39u-6 {
+  position: relative;
+  z-index: 0; /* stacking context */
   display: grid;
   padding: 1rem;
 }
@@ -424,6 +425,7 @@ abbr[title] {
   grid-area: gradient;
   display: flex;
   border: 1px solid currentColor;
+  z-index: 1; /* above axis ticks */
 }
 
 .ColorBar_gradient__3uRdN {
@@ -435,6 +437,7 @@ abbr[title] {
   grid-area: axis;
   display: block;
   overflow: visible;
+  transform: translateY(0.5px); /* fix sub-pixel misalignment */
 }
 
 .ColorBar_tick__Yej21 line {
@@ -724,13 +727,15 @@ a.Toolbar_btn__1bcEF {
 
 .DomainTooltip_tooltipInner__1Lhwp {
   padding: 1rem 0.375rem 1rem 0.75rem;
+  display: flex;
+  align-items: center;
 }
 
-.DomainTooltip_tooltipInner__1Lhwp > p {
+.DomainTooltip_tooltipControls__1Hy7W > p {
   margin-bottom: 0.75rem;
 }
 
-.DomainTooltip_tooltipInner__1Lhwp > p:last-child {
+.DomainTooltip_tooltipControls__1Hy7W > p:last-child {
   margin-bottom: 0;
 }
 
@@ -857,6 +862,31 @@ a.Toolbar_btn__1bcEF {
 }
 
 .BoundEditor_actionBtn__24Y3v {
+}
+
+.Histogram_container__3Tvsn {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 10rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+.Histogram_histogram__3u3e8 {
+  overflow: visible;
+  background-color: var(--h5w-domainSlider-histogram--bgColor, white);
+}
+
+.Histogram_bar__3fAMd {
+  fill: var(--h5w-domainSlider-histogram--color, royalblue);
+}
+
+.Histogram_indicators__2szwN {
+  color: var(--h5w-domainSlider-histogram-indicator--color, midnightblue);
+  stroke: currentColor;
+  fill: currentColor;
 }
 
 .Thumb_thumb__38pDx {
@@ -1045,4 +1075,4 @@ a.Toolbar_btn__1bcEF {
 }
 
 
-/*# sourceMappingURL=main.c0fad5b6.chunk.css.map*/
+/*# sourceMappingURL=main.9129f22d.chunk.css.map*/
