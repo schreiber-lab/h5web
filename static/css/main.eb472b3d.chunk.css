@@ -508,21 +508,18 @@ abbr[title] {
   min-width: 0;
 }
 
-.Toolbar_controlsInner__2zDfU {
-  display: flex;
-}
-
-.Toolbar_control__1m2NT {
-  display: flex;
-}
-
-.Toolbar_controlsInner__2zDfU[data-all-measured='false'] {
+.Toolbar_controlWrapper__216ZV[data-measured='false'] {
   position: relative;
   overflow: hidden; /* hide controls while they are being measured */
 }
 
-.Toolbar_controlsInner__2zDfU[data-all-measured='false'] > .Toolbar_control__1m2NT {
+.Toolbar_controlWrapper__216ZV[data-measured='false'] > .Toolbar_control__1m2NT {
   position: absolute;
+}
+
+.Toolbar_controlWrapper__216ZV,
+.Toolbar_control__1m2NT {
+  display: flex;
 }
 
 .Toolbar_sep__2n9_q {
@@ -975,7 +972,6 @@ a.Toolbar_btn__1bcEF {
 
 .Selector_wrapper__J6xKW {
   position: relative;
-  z-index: 1;
   display: flex;
 }
 
@@ -1000,8 +996,10 @@ a.Toolbar_btn__1bcEF {
 
 .Selector_menu__3cR9N {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%); /* center menu with button */
+  z-index: 1; /* above other selectors */
   min-width: 100%;
   padding-top: 0.25rem;
   background-color: var(--h5w-selector-menu--bgColor, white);
@@ -1031,19 +1029,15 @@ a.Toolbar_btn__1bcEF {
   font-weight: 600;
 }
 
-.Selector_colorMap__mJUEl {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .Selector_selectedOption__Y1z1C {
   flex: 1 1;
 }
 
 .Selector_option__1rXYq {
+  flex: 1 1;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .Selector_option__1rXYq:hover {
@@ -1066,6 +1060,12 @@ a.Toolbar_btn__1bcEF {
   display: flex;
 }
 
+.ColorMapSelector_option__3oArn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .ColorMapSelector_gradient__1SDDK {
   position: relative;
   top: 1px;
@@ -1074,5 +1074,13 @@ a.Toolbar_btn__1bcEF {
   margin-left: 0.625rem;
 }
 
+.ScaleSelector_option__2OYkI {
+  display: flex;
+  align-items: center;
+}
 
-/*# sourceMappingURL=main.9129f22d.chunk.css.map*/
+.ScaleSelector_icon__2qwvP {
+}
+
+
+/*# sourceMappingURL=main.eb472b3d.chunk.css.map*/
