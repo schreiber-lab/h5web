@@ -1,0 +1,105 @@
+.btnClean {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.btnClean:disabled,
+.btnClean[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btnLink {
+  composes: btnClean;
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+}
+
+.btnLink:hover {
+  text-decoration: underline;
+}
+
+.fallback {
+  margin: 0;
+  padding: 1em;
+  color: var(--secondary-dark);
+}
+
+.error {
+  margin: 0;
+  padding: 1em;
+  color: brown;
+}
+
+/* Global lib styles for demo/Storybook */ /* global shared styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--sans-serif);
+  line-height: 1.2;
+  color: #020402;
+}
+
+body {
+  --primary: #c0da74;
+  --primary-light: #d4e09b;
+  --primary-dark: #9aae5d;
+  --primary-bg: #f5fbef;
+  --primary-light-bg: #fafdf7;
+  --primary-dark-bg: #dde2d7;
+  --secondary: #8cdfc7;
+  --secondary-light: #b7fcf3;
+  --secondary-lighter: #dbfef9;
+  --secondary-dark: #1b998b;
+  --secondary-dark-15: #1b998b26;
+  --secondary-darker: #0e5846;
+  --secondary-bg: #d9f4ec;
+  --secondary-light-bg: #ecfaf6;
+  --monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+  --sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body {
+  --h5w-line--color: var(--secondary-dark);
+  --h5w-line--colorAux: var(--secondary);
+  --h5w-matrix--fontFamily: var(--monospace);
+  --h5w-matrix-cell--bgColorAlt: var(--secondary-light-bg);
+  --h5w-matrix-indexCell--bgColor: var(--primary-bg);
+  --h5w-matrix-indexCell--bgColorAlt: var(--primary-light-bg);
+  --h5w-matrix-anchorCell--bgColor: var(--primary-dark-bg);
+  --h5w-btn-hover--bgColor: var(--secondary-lighter);
+  --h5w-btnPressed--bgColor: var(--secondary-light);
+  --h5w-toolbar--bgColor: var(--secondary-light-bg);
+  --h5w-domainSlider-track--bgColor: var(--secondary-dark-15);
+  --h5w-domainSlider-dataTrack--bgColor: var(--secondary-dark);
+  --h5w-domainSlider-dataTrack--shadowColor: var(--secondary-darker);
+  --h5w-domainSlider-thumb--bgColor: var(--secondary);
+  --h5w-domainSlider-thumb-auto--bgColor: var(--secondary-light);
+  --h5w-domainSlider-boundInput-focus--shadowColor: var(--secondary-dark);
+  --h5w-domainSlider-boundInput-editing--borderColor: var(--secondary-dark);
+  --h5w-selector-label--color: var(--secondary-dark);
+  --h5w-selector-option-hover--bgColor: var(--secondary-light-bg);
+  --h5w-selector-option-selected--bgColor: var(--secondary-light);
+  --h5w-domainSlider-histogram--color: var(--secondary-dark);
+  --h5w-domainSlider-histogram-indicator--color: var(--secondary-darker);
+}
+
+
+/*# sourceMappingURL=main.19540b32.chunk.css.map*/
