@@ -1,0 +1,112 @@
+.VisCanvas_canvasArea__3-FLl {
+  position: relative;
+  flex: 1 1;
+  overflow: hidden; /* prevent overflow when resizing */
+}
+
+.VisCanvas_canvasWrapper__Y1c0J {
+  width: 100%; /* fill container by default (unless size is passed in JSX) */
+  height: 100%;
+  margin: 0 auto;
+}
+
+.VisCanvas_r3fRoot__1e3ke {
+  overflow: visible !important; /* show child axis grid, which is bigger than canvas */
+  background-color: transparent;
+  background-color: var(--h5w-canvas--bgColor, transparent);
+}
+
+.AxisSystem_axisSystem__WkolN {
+  display: grid;
+  grid-template-areas:
+    '. top-axis .'
+    '. axis-grid right-axis'
+    '. bottom-axis .';
+
+  /* - Prevent panning/zooming from axis when zoomed in.
+   * - Prevent text selection of tick labels when panning with touchpad. */
+  pointer-events: none;
+}
+
+.AxisSystem_axisSystem__WkolN > svg {
+  display: block;
+  overflow: visible;
+
+  /* Avoid potential overflow caused by default intrinsic size of `svg` elements. */
+  /* Chrome/Edge require values greater than 0. */
+  width: 1px;
+  height: 1px;
+}
+
+.AxisSystem_axis__Iuh_C[data-type='abscissa'] {
+  grid-area: bottom-axis;
+}
+
+.AxisSystem_axis__Iuh_C[data-type='ordinate'] {
+  grid-area: axis-grid;
+}
+
+.AxisSystem_axis__Iuh_C > g > line {
+  stroke: gray;
+  stroke: var(--h5w-grid--color, gray);
+  stroke-opacity: 0.33;
+  stroke-opacity: var(--h5w-grid--opacity, 0.33);
+}
+
+.AxisSystem_tick__uaHcJ > line {
+  stroke: gray;
+  stroke: var(--h5w-ticks--color, gray);
+}
+
+.AxisSystem_tick__uaHcJ > text {
+  fill: currentColor;
+  color: #333;
+  color: var(--h5w-tickLabels--color, #333);
+  font-family: inherit;
+  font-family: var(--h5w-tickLabels--fontFamily, inherit);
+  font-size: inherit;
+  font-size: var(--h5w-tickLabels--fontSize, inherit);
+}
+
+.AxisSystem_label__1dcc1 {
+  fill: currentColor;
+  color: #333;
+  color: var(--h5w-axisLabels--color, #333);
+  font-family: inherit;
+  font-family: var(--h5w-axisLabels--fontFamily, inherit);
+  font-size: inherit;
+  font-size: var(--h5w-axisLabels--fontSize, inherit);
+  font-weight: 600;
+  font-weight: var(--h5w-axisLabels--fontWeight, 600);
+  text-anchor: middle;
+}
+
+.AxisSystem_title__33hc0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: top-axis;
+  margin: 0;
+  color: inherit;
+  color: var(--h5w-plotTitle--color, inherit);
+  font-family: inherit;
+  font-family: var(--h5w-plotTitle--fontFamily, inherit);
+  font-size: 1.125em;
+  font-size: var(--h5w-plotTitle--fontSize, 1.125em);
+  font-weight: inherit;
+  font-weight: var(--h5w-plotTitle--fontWeight, inherit);
+}
+
+.AxisSystem_grid__17H7t {
+  grid-area: axis-grid;
+}
+
+.AxisSystem_grid__17H7t line {
+  stroke: gray;
+  stroke: var(--h5w-grid--color, gray);
+  stroke-opacity: 0.33;
+  stroke-opacity: var(--h5w-grid--opacity, 0.33);
+}
+
+
+/*# sourceMappingURL=XZoom-stories.cf820dc0.chunk.css.map*/
