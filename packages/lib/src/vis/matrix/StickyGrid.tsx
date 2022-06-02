@@ -65,4 +65,5 @@ const StickyGrid = forwardRef<HTMLDivElement, Props>((props, ref) => {
   );
 });
 
+StickyGrid.displayName = 'StickyGrid';
 export default StickyGrid;

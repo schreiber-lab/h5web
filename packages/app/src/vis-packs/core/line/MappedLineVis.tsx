@@ -114,6 +114,7 @@ function MappedLineVis(props: Props) {
           label,
           array: auxArrays[i],
         }))}
+        testid={dimMapping.toString()}
       />
     </>
   );
