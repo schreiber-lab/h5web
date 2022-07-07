@@ -28,11 +28,7 @@ export function getFormatter(
   return (val) => (val as string).toString();
 }
 
-export function getCellWidth(
-  dataset: Dataset<ArrayShape, PrintableType>
-): number {
-  const { type } = dataset;
-
+export function getCellWidth(type: PrintableType): number {
   if (type.class === DTypeClass.String) {
     return type.length !== undefined ? 12 * type.length : 300;
   }

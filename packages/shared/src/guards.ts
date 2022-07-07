@@ -22,6 +22,8 @@ import type {
   StringType,
   Primitive,
   Value,
+  CompoundType,
+  PrintableCompoundType,
 } from './models-hdf5';
 import type { AnyNumArray, NumArray } from './models-vis';
 import { ScaleType } from './models-vis';
@@ -387,4 +389,33 @@ export function isTypedNdArray<T extends NumArray>(
   ndArr: NdArray<T>
 ): ndArr is NdArray<Exclude<T, number[]>> {
   return ndArr.dtype !== 'array';
+}
+
+export function hasCompoundType<S extends Shape>(
+  dataset: Dataset<S>
+): dataset is Dataset<S, CompoundType> {
+  return dataset.type.class === DTypeClass.Compound;
+}
+
+export function assertCompoundType<S extends Shape>(
+  dataset: Dataset<S>
+): asserts dataset is Dataset<S, CompoundType> {
+  if (!hasCompoundType(dataset)) {
+    throw new Error('Expected dataset to have compound type');
+  }
+}
+
+export function hasPrintableFields<S extends Shape>(
+  dataset: Dataset<S, CompoundType>
+): dataset is Dataset<S, PrintableCompoundType> {
+  const { fields } = dataset.type;
+  return Object.values(fields).every((f) => PRINTABLE_DTYPES.has(f.class));
+}
+
+export function assertPrintableFields<S extends Shape>(
+  dataset: Dataset<S, CompoundType>
+): asserts dataset is Dataset<S, PrintableCompoundType> {
+  if (!hasPrintableFields(dataset)) {
+    throw new Error('Expected compound dataset to have printable types');
+  }
 }
