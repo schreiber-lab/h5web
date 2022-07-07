@@ -31,6 +31,7 @@ export interface NxData<
   errorsDataset?: NumArrayDataset;
   axisDatasets: AxisDatasetMapping;
   auxDatasets: NumArrayDataset[];
+  auxErrorsDatasets: NumArrayDataset[];
   titleDataset?: Dataset<ScalarShape, StringType>;
   silxStyle: SilxStyle;
 }
@@ -54,4 +55,5 @@ export interface SilxStyle {
 export interface Auxiliary {
   label: string;
   value: NumArray;
+  error?: NumArray;
 }

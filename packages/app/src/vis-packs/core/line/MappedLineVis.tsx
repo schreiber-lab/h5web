@@ -68,13 +68,17 @@ function MappedLineVis(props: Props) {
     auxiliaries.map((aux) => aux.value),
     ...hookArgs
   );
+  const [auxErrorArrays, auxErrorForDomain] = useMappedArrays(
+    auxiliaries.map((aux) => aux.error),
+    ...hookArgs
+  );
 
   const dataDomain = useDomain(
     dataForDomain,
     yScaleType,
     showErrors ? errorsForDomain : undefined
   );
-  const auxDomains = useDomains(auxForDomain, yScaleType);
+  const auxDomains = useDomains(auxForDomain, yScaleType, auxErrorForDomain);
   const combinedDomain = useCombinedDomain([dataDomain, ...auxDomains]);
 
   const mappedAbscissaParams = axisMapping[dimMapping.indexOf('x')];
@@ -113,6 +117,7 @@ function MappedLineVis(props: Props) {
         auxiliaries={auxiliaries.map(({ label }, i) => ({
           label,
           array: auxArrays[i],
+          errors: auxErrorArrays[i],
         }))}
       />
     </>

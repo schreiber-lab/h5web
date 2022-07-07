@@ -85,11 +85,12 @@ export function findSignalDataset(
 
 export function findErrorsDataset(
   group: GroupWithChildren,
-  signalName: string
+  signalName?: string
 ): NumArrayDataset | undefined {
-  const dataset =
-    getChildEntity(group, `${signalName}_errors`) ||
-    getChildEntity(group, 'errors');
+  const dataset = getChildEntity(
+    group,
+    signalName ? `${signalName}_errors` : 'errors'
+  );
 
   if (!dataset) {
     return undefined;

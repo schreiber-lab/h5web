@@ -40,11 +40,12 @@ export function useDomain(
 
 export function useDomains(
   valuesArrays: AnyNumArray[],
-  scaleType: ScaleType = ScaleType.Linear
+  scaleType: ScaleType = ScaleType.Linear,
+  errorsArray?: (AnyNumArray | undefined)[]
 ): (Domain | undefined)[] {
   const allBounds = useMemo(() => {
-    return valuesArrays.map((arr) => getBounds(arr));
-  }, [valuesArrays]);
+    return valuesArrays.map((arr, i) => getBounds(arr, errorsArray?.[i]));
+  }, [valuesArrays, errorsArray]);
 
   return useMemo(
     () => allBounds.map((bounds) => getValidDomainForScale(bounds, scaleType)),

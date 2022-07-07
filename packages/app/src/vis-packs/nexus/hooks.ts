@@ -25,12 +25,16 @@ export function useNxData(group: GroupWithChildren): NxData {
 
   assertNxDataGroup(group, attrValuesStore);
   const signalDataset = findSignalDataset(group, attrValuesStore);
-  const errorsDataset = findErrorsDataset(group, signalDataset.name);
+  const errorsDataset =
+    findErrorsDataset(group, signalDataset.name) || findErrorsDataset(group);
   const auxDatasets = findAssociatedDatasets(
     group,
     'auxiliary_signals',
     attrValuesStore
-  );
+  ).filter(isDefined);
+  const auxErrorsDatasets = auxDatasets
+    .map((auxDataset) => findErrorsDataset(group, auxDataset.name))
+    .filter(isDefined);
 
   return {
     signalDataset,
@@ -38,7 +42,8 @@ export function useNxData(group: GroupWithChildren): NxData {
     axisDatasets: findAxesDatasets(group, signalDataset, attrValuesStore),
     titleDataset: findTitleDataset(group),
     silxStyle: getSilxStyle(group, attrValuesStore),
-    auxDatasets: auxDatasets.filter(isDefined),
+    auxDatasets,
+    auxErrorsDatasets,
   };
 }
 
@@ -63,14 +68,19 @@ export function useAxisMapping(
 
 export function useAuxiliaries(
   auxDatasets: NumArrayDataset[],
-  selection: string | undefined
+  selection: string | undefined,
+  auxErrorsDatasets: NumArrayDataset[] = []
 ): Auxiliary[] {
   const { attrValuesStore } = useDataContext();
 
-  const auxValues = useDatasetValues(auxDatasets, selection);
+  const auxValues = useDatasetValues(
+    [...auxDatasets, ...auxErrorsDatasets],
+    selection
+  );
 
   return auxDatasets.map((dataset) => ({
     label: getDatasetLabel(dataset, attrValuesStore),
     value: auxValues[dataset.name],
+    error: auxValues[`${dataset.name}_errors`],
   }));
 }

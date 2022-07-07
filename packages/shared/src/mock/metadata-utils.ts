@@ -303,6 +303,7 @@ export function makeNxDataGroup<
       ...(auxAttr ? [makeNxAuxAttr(auxAttr)] : []),
     ],
     children: [
+      ...(groupOpts.children ?? []),
       signal,
       ...(title ? [title] : []),
       ...(errors ? [errors] : []),
